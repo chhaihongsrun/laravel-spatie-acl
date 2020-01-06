@@ -28,6 +28,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(5);
+
         return view('products.index',compact('products'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -50,7 +51,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        $this->validate($request, [
             'name' => 'required',
             'detail' => 'required',
         ]);
@@ -69,6 +70,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
+        $product = Product::find($id);
+
         return view('products.show',compact('product'));
     }
 
@@ -80,6 +83,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
+        $product = Product::find($id);
+
         return view('products.edit',compact('product'));
     }
 
@@ -96,7 +101,8 @@ class ProductsController extends Controller
             'name' => 'required',
             'detail' => 'required',
         ]);
-
+        
+        $product = Product::find($id);
         $product->update($request->all());
 
         return redirect()->route('products.index')

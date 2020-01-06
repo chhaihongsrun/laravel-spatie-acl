@@ -6,19 +6,3 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// pagination rounded-pill
-.pagination {
-    .page-item {
-        &.page-item:first-child > .page-link {
-            margin-left: 0;
-            border-top-left-radius: 1.25rem;
-            border-bottom-left-radius: 1.25rem;
-        }
-
-        &.page-item:last-child > .page-link {
-            border-top-right-radius: 1.25rem;
-            border-bottom-right-radius: 1.25rem;
-        }
-    }
-}

@@ -16,7 +16,9 @@ class ProductsTableSeeder extends Seeder
     	foreach (range(1,10) as $index) {
 	        DB::table('products')->insert([
 	            'name' => $faker->name,
-	            'detail' => $faker->text,
+                'detail' => $faker->text,
+                'created_at' => NOW(),
+                'updated_at' => NOW(),
 	        ]);
         }
     }
