@@ -10,7 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function() {
+    return redirect('/home');
+});
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes(['verify' => true]);
+
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    Route::resource('roles','RolesController');
+    Route::resource('users','UsersController');
+    Route::resource('products','ProductsController');
 });
