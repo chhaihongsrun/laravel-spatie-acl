@@ -17,7 +17,7 @@
         "jquery": "^3.4.1",
         "laravel-mix": "^4.1.4",
         "laravel-mix-purgecss": "^4.2.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "popper.js": "^1.16.0",
         "resolve-url-loader": "^2.3.2",
         "sass": "^1.24.3",
